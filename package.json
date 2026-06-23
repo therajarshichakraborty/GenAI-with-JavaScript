@@ -1,0 +1,17 @@
+{
+  "name": "GenAI-cohort-with-javascript",
+  "version": "1.0.0",
+  "description": "The Brief Documentation of learning in GenAI Cohort by chaicode - 2026",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.ts",
+    "start": "node index.ts"
+  },
+  "author": "Rajarshi Chakraborty",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^26.0.0"
+  }
+}
