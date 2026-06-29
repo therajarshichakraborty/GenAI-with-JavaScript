@@ -12,6 +12,9 @@
   "author": "Rajarshi Chakraborty",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^26.0.0"
+    "@types/node": "^26.0.0",
+    "dotenv": "^17.4.2",
+    "openai": "^6.45.0",
+    "tiktoken": "^1.0.22"
   }
 }

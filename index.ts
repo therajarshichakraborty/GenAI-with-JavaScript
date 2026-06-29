@@ -1,13 +1,15 @@
-import OpenAI from "openai";
+import dotenv from "dotenv"
+dotenv.config()
 
-// Automatically picks up the OPENAI_API_KEY environment variable
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, 
+import { OpenAI } from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 async function main(): Promise<void> {
   try {
-    const response = await openai.chat.completions.create({
+    const response = await client.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         { role: "system", content: "You are a helpful assistant." },
