@@ -12,9 +12,14 @@
   "author": "Rajarshi Chakraborty",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "dotenv": "^17.4.2",
     "openai": "^6.45.0",
-    "tiktoken": "^1.0.22"
+    "tiktoken": "^1.0.22",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   }
 }
