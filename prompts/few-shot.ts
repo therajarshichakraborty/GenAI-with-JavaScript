@@ -1,13 +1,11 @@
 //@ts-nocheck
 import OpenAI from "openai";
-
-// Initialize the client. It automatically picks up process.env.OPENAI_API_KEY
 const openai = new OpenAI();
 
 async function runFewShotPrompt() {
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o", // You can use gpt-4o, gpt-4-turbo, or gpt-3.5-turbo
+      model: "gpt-4o", 
       messages: [
         {
           role: "system",
@@ -46,11 +44,10 @@ async function runFewShotPrompt() {
           content: "The product works fine, but it is nothing special."
         }
       ],
-      temperature: 0.3, // Lower temperature keeps the output structured and predictable
-    ]);
+      temperature: 0.3,
+  });
 
     console.log("Model Output:", response.choices[0].message.content);
-    // Expected output: "Sentiment: Neutral" or "Sentiment: Negative" depending on nuance
   } catch (error) {
     console.error("Error calling OpenAI API:", error);
   }
