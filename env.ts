@@ -12,6 +12,4 @@ const envSchema = z.object({
 
 });
 
-const env = envSchema.parse(process.env);
-
-export default env;
+export const env = envSchema.parse(process.env);

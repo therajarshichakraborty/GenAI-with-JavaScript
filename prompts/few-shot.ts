@@ -11,7 +11,6 @@ async function runFewShotPrompt() {
           role: "system",
           content: "You are a helpful assistant that classifies text sentiment into Positive, Negative, or Neutral."
         },
-        // --- Few-Shot Example 1 ---
         {
           role: "user",
           content: "I love the new design of your app! It is so intuitive."
@@ -20,7 +19,6 @@ async function runFewShotPrompt() {
           role: "assistant",
           content: "Sentiment: Positive"
         },
-        // --- Few-Shot Example 2 ---
         {
           role: "user",
           content: "The delivery took three weeks and the packaging was damaged."
@@ -29,7 +27,6 @@ async function runFewShotPrompt() {
           role: "assistant",
           content: "Sentiment: Negative"
         },
-        // --- Few-Shot Example 3 ---
         {
           role: "user",
           content: "The package arrived today."
@@ -38,7 +35,6 @@ async function runFewShotPrompt() {
           role: "assistant",
           content: "Sentiment: Neutral"
         },
-        // --- The Actual Target Prompt ---
         {
           role: "user",
           content: "The product works fine, but it is nothing special."

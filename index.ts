@@ -2,10 +2,10 @@ import dotenv from "dotenv"
 dotenv.config()
 
 import { OpenAI } from "openai";
-import env from "./env";
+import env from "./env.js";
 
 const client = new OpenAI({
-  apiKey: env.OPEN_API_KEY,
+  apiKey: env.OPENAI_API_KEY,
   baseURL: "",
 });
 
@@ -19,7 +19,8 @@ async function main(): Promise<void> {
       ],
       temperature: 0.7,
     });
-
+    
+    //@ts-ignore
     console.log(response.choices[0].message.content);
   } catch (error) {
     console.error("Error calling OpenAI:", error);
