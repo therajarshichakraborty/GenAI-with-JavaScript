@@ -54,8 +54,7 @@ async function query(userQuery) {
     });
 
     console.log(`LLM Response:`, llmResponse.choices[0].message.content);
-
-    //console.log(SYSTEM_PROMPT);
+    console.log(SYSTEM_PROMPT);
 
 }
 

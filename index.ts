@@ -2,10 +2,10 @@ import dotenv from "dotenv"
 dotenv.config()
 
 import { OpenAI } from "openai";
-import env from "./env.js";
+// import env from "./env.js";
 
 const client = new OpenAI({
-  apiKey: env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
   baseURL: "",
 });
 
