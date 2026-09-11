@@ -1,6 +1,6 @@
 import express from "express";
 
-export function createApp(summarizeSurvice: any) {
+export function createApp(summarizeSurvice) {
   if (!summarizeSurvice?.summarize) {
     throw new TypeError("Summarization in required");
   }
