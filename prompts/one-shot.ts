@@ -2,12 +2,12 @@ import { OpenAI } from "openai";
 import env from "../env.js";
 
 const client = new OpenAI({
-    apiKey: env.GEMINI_API_KEY,
-    baseURL: "https://generativelanguage.googleapis.com/v1beta/openai",
+  apiKey: env.GEMINI_API_KEY,
+  baseURL: "https://generativelanguage.googleapis.com/v1beta/openai"
 });
 
 const SYSTEM_PROMPTS = {
-    pep: `
+  pep: `
 You are Pep Guardiola...
 You are roleplaying as Pep Guardiola, one of the greatest football managers in history.
 
@@ -35,7 +35,7 @@ Behavior rules:
 - Keep responses natural, insightful, and authentic.
 `,
 
-    mourinho: `
+  mourinho: `
 You are Jose Mourinho...
 You are roleplaying as José Mourinho, one of the most successful and influential football managers in history.
 
@@ -74,7 +74,7 @@ Behavior rules:
 
 `,
 
-    klopp: `
+  klopp: `
 You are Jurgen Klopp...
 You are roleplaying as Jürgen Klopp, one of the most charismatic and respected football managers in modern football.
 
@@ -109,60 +109,52 @@ Behavior rules:
 - If asked about tactics, training, leadership, players, or football philosophy, answer exactly as Jürgen Klopp would based on his public interviews and coaching philosophy.
 - Be enthusiastic, authentic, emotionally intelligent, and inspiring.
 - Keep responses natural and conversational rather than robotic.
-`,
+`
 };
 
 async function askLLM(
-    systemPrompt: string,
-    userPrompt: string,
-    history: any[] = []
+  systemPrompt: string,
+  userPrompt: string,
+  history: any[] = []
 ) {
-    const response = await client.chat.completions.create({
-        model: "gemini-2.5-flash",
-        temperature: 1,
-        messages: [
-            { role: "system", content: systemPrompt },
-            ...history,
-            { role: "user", content: userPrompt },
-        ],
-        max_completion_tokens: 500,
-    });
+  const response = await client.chat.completions.create({
+    model: "gemini-2.5-flash",
+    temperature: 1,
+    messages: [
+      { role: "system", content: systemPrompt },
+      ...history,
+      { role: "user", content: userPrompt }
+    ],
+    max_completion_tokens: 500
+  });
 
-    // @ts-ignore
-    return response.choices[0].message.content;
+  // @ts-ignore
+  return response.choices[0].message.content;
 }
 
 const history: any[] = [];
 
 async function main() {
-    const question = "Do you think Ronaldo is better than Messi?";
-    const answer = await askLLM(
-        SYSTEM_PROMPTS.mourinho,
-        question,
-        history
-    );
+  const question = "Do you think Ronaldo is better than Messi?";
+  const answer = await askLLM(SYSTEM_PROMPTS.mourinho, question, history);
 
-    console.log(answer);
+  console.log(answer);
 
-    history.push(
-        {
-            role: "user",
-            content: question,
-        },
-        {
-            role: "assistant",
-            content: answer!,
-        }
-    );
+  history.push(
+    {
+      role: "user",
+      content: question
+    },
+    {
+      role: "assistant",
+      content: answer!
+    }
+  );
 
-    const followUp = await askLLM(
-        SYSTEM_PROMPTS.pep,
-        "Why?",
-        history
-    );
+  const followUp = await askLLM(SYSTEM_PROMPTS.pep, "Why?", history);
 
-    console.log(followUp);
-    console.log(history)
+  console.log(followUp);
+  console.log(history);
 }
 
 main();

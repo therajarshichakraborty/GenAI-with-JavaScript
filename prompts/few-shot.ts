@@ -5,11 +5,12 @@ const openai = new OpenAI();
 async function runFewShotPrompt() {
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o", 
+      model: "gpt-4o",
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant that classifies text sentiment into Positive, Negative, or Neutral."
+          content:
+            "You are a helpful assistant that classifies text sentiment into Positive, Negative, or Neutral."
         },
         {
           role: "user",
@@ -21,7 +22,8 @@ async function runFewShotPrompt() {
         },
         {
           role: "user",
-          content: "The delivery took three weeks and the packaging was damaged."
+          content:
+            "The delivery took three weeks and the packaging was damaged."
         },
         {
           role: "assistant",
@@ -40,8 +42,8 @@ async function runFewShotPrompt() {
           content: "The product works fine, but it is nothing special."
         }
       ],
-      temperature: 0.3,
-  });
+      temperature: 0.3
+    });
 
     console.log("Model Output:", response.choices[0].message.content);
   } catch (error) {
