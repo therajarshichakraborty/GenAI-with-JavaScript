@@ -9,23 +9,23 @@ async function runFewShotPrompt() {
         {
           role: "system",
           content:
-            "You are a helpful assistant that classifies text sentiment into Positive, Negative, or Neutral.",
+            "You are a helpful assistant that classifies text sentiment into Positive, Negative, or Neutral."
         },
         {
           role: "user",
-          content: "I love the new design of your app! It is so intuitive.",
+          content: "I love the new design of your app! It is so intuitive."
         },
         {
           role: "assistant",
-          content: "Sentiment: Positive",
-        },
-      ],
+          content: "Sentiment: Positive"
+        }
+      ]
     });
 
-    response.choices.forEach((choice) => console.log(choice.message.content))
+    response.choices.forEach((choice) => console.log(choice.message.content));
   } catch (err) {
     console.error(err);
   }
 }
 
-runFewShotPrompt()
+runFewShotPrompt();

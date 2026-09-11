@@ -48,9 +48,8 @@ export function useFetch(url: string) {
   return {
     data,
     loading,
-    error,
+    error
   };
 }
 
-
-useFetch("http://loacalhost:3000")
+useFetch("http://loacalhost:3000");

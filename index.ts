@@ -1,12 +1,12 @@
-import dotenv from "dotenv"
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
 import { OpenAI } from "openai";
 // import env from "./env.js";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  baseURL: "",
+  baseURL: ""
 });
 
 async function main(): Promise<void> {
@@ -17,9 +17,9 @@ async function main(): Promise<void> {
         { role: "system", content: "You are a helpful assistant." },
         { role: "user", content: "Explain TypeScript in one sentence." }
       ],
-      temperature: 0.7,
+      temperature: 0.7
     });
-    
+
     //@ts-ignore
     console.log(response.choices[0].message.content);
   } catch (error) {
